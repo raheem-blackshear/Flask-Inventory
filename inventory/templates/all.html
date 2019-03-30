@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{title}}
+{% endblock %}
+{% block display_ %}
+{{display}}
+{% endblock %}
+{% block display_1 %}
+{{display1}}
+{% endblock %}
+
+{% block content %}
+
+    <!-- Intro Header -->
+
+    <header class="intro">
+        <div class="intro-body">
+             <section id="about" class="container content-section text-center">
+
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+            <div id="products" style="color: red;">
+             <input class="search"  placeholder="Search"/>
+            
+<table>
+<tbody class="list">
+  <tr>
+    <th class="tg-031e">Image</th>
+    <th class="tg-031e">Name</th>
+    <th class="tg-031e">Company</th>
+    <th class="tg-031e">Origin SKU</th>
+    <th class="tg-031e">QTY</th>
+  </tr>
+  {% for name, origin_sku, com, qty, sku, image, orig_qty in product %}
+
+  <tr>
+   <td> <img src="/static/products/{{image}}" width='100px'></td>
+    <td class="name">{{ name }}</td>
+    <td class="company">{{com}}</td>
+    <td class="origin">{{origin_sku}}</td>
+    <td class="qty">{{qty}}</td>
+    <td class="orig_qty">{{orig_qty}}</td>
+    <td class=""><a href="{{ url_for('index', sku=sku)}}" style="font-size: 15px; color: red">View</a></td>
+    <td class=""><a href="{{ url_for('quick', sku=sku)}}" style="font-size: 15px; color: red">Qty Edit</a></td>
+  </tr>
+     {% endfor %}
+     </tbody>
+</table>
+
+  </div>
+           
+            </div>
+        </div>
+    </section>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+       
+    </header>
+
+
+    <!-- Download Section -->
+        {% endblock %}
